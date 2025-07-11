@@ -1,0 +1,466 @@
+@import url(https://db.onlinewebfonts.com/c/bc3e195079415f04ef5925380a2a40f6?family=DejaVu+Sans+Bold);
+
+@font-face {
+  font-family: 'dejavu-sans';
+  src: url('dejavu-sans-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: "dejavu-sans-bold";
+    src: url("https://db.onlinewebfonts.com/t/bc3e195079415f04ef5925380a2a40f6.eot");
+    src: url("https://db.onlinewebfonts.com/t/bc3e195079415f04ef5925380a2a40f6.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/bc3e195079415f04ef5925380a2a40f6.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/bc3e195079415f04ef5925380a2a40f6.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/bc3e195079415f04ef5925380a2a40f6.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/bc3e195079415f04ef5925380a2a40f6.svg#DejaVu Sans Bold")format("svg");
+}
+
+.warning-overlay {
+  position: absolute;
+  left: 50vw;
+  top: 20vh;
+  width: 100vh;
+  z-index: 950;
+  transform: translate(-50%, -50%);
+}
+
+#warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 5vh;
+    background-color: #000d2b; /* darker gray */
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-image {
+  position: absolute;
+  left: 3.5vw;
+  top: 1.5vh;
+  width: 2vh;
+}
+
+.header-menu {
+  position: absolute;
+  left: 90vw;
+  top: 3vh;
+  width: 2.5vh;
+  transform: translate(-50%, -50%);
+}
+
+.header-text {
+  position: absolute;
+  left: 11vw;
+  top: 1.9vh;
+  width: 60%;
+  min-width: 200px;
+  max-width: 95vw;
+  color: #ffffff;
+  font-size: 2vh;
+  font-weight: bold;
+  text-align: left;
+  line-height: 1.2;
+  z-index: 1001;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content {
+    position: relative;
+    margin-top: 5vh;
+    width: 100vw;
+    height: 88vh;
+    background-color: #000d2b;
+    text-align: center;
+    z-index: 900;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.id-content {
+  position: absolute;
+  top: 1%; /* 10% from top of .content */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  height: 145vw; /* 80% of .content (which is 80vh), so 0.8 * 80vh = 64vh */
+  text-align: center;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+}
+
+.id-foto-background {
+  position: absolute;
+  top: 3%; /* 10% from top of .content */
+  left: 75%;
+  transform: translateX(-50%);
+  width: 40vw;
+  height: 50vw; /* 80% of .content (which is 80vh), so 0.8 * 80vh = 64vh */
+  text-align: center;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  background-color: #ffffff;
+}
+
+.id-foto {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px #fff; /* thinner white border */
+  border-radius: 10px;
+}
+
+.id-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.Id-star {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  width: 25vw;
+  height: 25vw;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  z-index: 1002;
+  object-fit: contain;
+  border-radius: 10px;
+  background: transparent;
+  display: block;
+}
+
+.id-content-age {
+  position: absolute;
+  left: 50%;
+  top: 61%; /* Center the text vertically in .id-content */
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  width: 40%;
+  color: #352c45;
+  font-size: 4.5vw;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.id-content-name {
+  position: absolute;
+  left: 3%;
+  top: 26.5%;
+  width: 60%;
+  min-width: 200px;
+  max-width: 95vw;
+  color: #352c45;
+  font-size: 6vw;
+  font-weight: bold;
+  text-align: left;
+  line-height: 1.2;
+  z-index: 1001;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.id-content-birthyear {
+  position: absolute;
+  left: 2%;
+  top: 61%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 40%;
+  color: #352c45;
+  font-size: 4.5vw;
+  font-weight: bold;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.id-content-number {
+  position: absolute;
+  left: 58%;
+  top: 61%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 40%;
+  color: #352c45;
+  font-size: 4.5vw;
+  font-weight: bold;
+  text-align: right;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+
+.id-content-update {
+  position: absolute;
+  left: 47.5%;
+  top: 96.7%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 40%;
+  color: #000d2b;
+  font-size: 2.5vw;
+  font-weight: bold;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.kontrol-header {
+  position: absolute;
+  left: 50%;
+  top: 6vw; /* Center vertically in .content */
+  width: 100%;
+  height: 9%;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  z-index: 950;
+  object-fit: cover;
+  background: transparent;
+  display: block;
+}
+
+.kontrol-header img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.kontrol-content {
+  position: absolute;
+  top: 1%; /* 10% from top of .content */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  height: 143vw; /* 80% of .content (which is 80vh), so 0.8 * 80vh = 64vh */
+  text-align: center;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+  background-color: #ffffff;
+}
+
+.kontrol-qr {
+  position: absolute;
+  left: 50vw;
+  top: 63vw; /* Center vertically in .content */
+  width: 88vw;
+  height: 88vw;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  z-index: 1002;
+  object-fit: cover;
+  background: transparent;
+  display: block;
+}
+
+.kontrol-qr img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.kontrol-bottom {
+  position: absolute;
+  left: 50%;
+  top: 93%; /* Center vertically in .content */
+  width: 100%;
+  height: 15%;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  z-index: 950;
+  object-fit: cover;
+  background: transparent;
+  display: block;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+}
+
+.kontrol-bottom img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.kontrol-bottom-image {
+  position: absolute;
+  left: 13%;
+  top: 50%; /* Center vertically in .content */
+  width: 15vw;
+  height: 15vw;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  z-index: 950;
+  object-fit: cover;
+  background: transparent;
+  display: block;
+  background-color: #ffffff;
+  border-radius: 10vw;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+
+.kontrol-bottom-image img {
+  position: relative;
+  width: 95%;
+  height: 95%;
+  left: 47.7%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  
+  border-radius: 10vw;
+}
+
+.kontrol-politi {
+  position: absolute;
+  left: 49%;
+  top: 113vw; /* Center vertically in .content */
+  width: 90%;
+  height: 9%;
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  z-index: 950;
+  object-fit: cover;
+  background: transparent;
+  display: block;
+}
+
+.kontrol-politi img{
+  position: relative;
+  width: 95%;
+  height: 95%;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.kontrol-bottom-name {
+  position: absolute;
+  left: 25%;
+  top: 40%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 70vw;
+  color: #352c45;
+  font-size: 4vw;
+  font-weight: bold;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.kontrol-bottom-id {
+  position: absolute;
+  left: 25%;
+  top: 63%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 70vw;
+  color: #352c45;
+  font-size: 3.5vw;
+  font-weight: bold;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.footer {
+    position: fixed;
+    top: 93vh;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 7vh;
+    background-color: #000d2b;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10vw; /* Increased spacing between icons */
+}
+
+.footer > div {
+    width: 8vh;
+    height: 8vh;
+    background: transparent; /* Make square background transparent */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-size: 2vh;
+}
+
+.footer > div img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000d2b; /* match header/footer gray for iPhone background */
+    font-family: 'dejavu-sans', Arial, sans-serif;
+}
+
+.header,
+.header-text,
+.header-image,
+.content,
+.id-content,
+.id-content-update,
+.id-content-name,
+.kontrol-bottom-name,
+.footer {
+    font-family: 'dejavu-sans', Arial, sans-serif;
+}
