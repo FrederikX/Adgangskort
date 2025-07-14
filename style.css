@@ -58,7 +58,7 @@
   position: absolute;
   left: 3.5vw;
   top: 1.5vh;
-  width: 2vh;
+  width: 2.5vh;
 }
 
 .header-menu {
@@ -93,7 +93,7 @@
     margin-top: 5vh;
     width: 100vw;
     height: 88vh;
-    background-color: #000d2b;
+    background-color: #000d2b4d;
     text-align: center;
     z-index: 900;
     display: flex;
@@ -101,6 +101,101 @@
     justify-content: center;
     overflow-y: auto;
 }
+
+/* -------------- kort section -------------- */
+
+.info-content {
+    position: absolute;
+    top: 1%; /* 10% from top of .content */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95vw;
+    height: 220vw; /* 80% of .content (which is 80vh), so 0.8 * 80vh = 64vh */
+    text-align: center;
+    z-index: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+}
+
+.info-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.info-cpr {
+  position: absolute;
+  left: 3.6%;
+  top: 67%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 30vw;
+  color: #000d2b;
+  font-size: 3.5vw;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.info-nummer {
+  position: absolute;
+  left: 3.6%;
+  top: 77.6%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 30vw;
+  color: #000d2b;
+  font-size: 3.5vw;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.info-udstedt {
+  position: absolute;
+  left: 3.6%;
+  top: 88.2%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 30vw;
+  color: #000d2b;
+  font-size: 3.5vw;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.info-gyldig {
+  position: absolute;
+  left: 50%;
+  top: 88.2%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 30vw;
+  color: #000d2b;
+  font-size: 3.5vw;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.info-fødested {
+  position: absolute;
+  left: 3.6%;
+  top: 98%; /* Center vertically in .id-content */
+  transform: translateY(-50%); /* Center vertically only */
+  width: 30vw;
+  color: #000d2b;
+  font-size: 3.5vw;
+  text-align: left;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+
+/* -------------- kort section -------------- */
+
+
 
 .id-content {
   position: absolute;
@@ -226,7 +321,6 @@
   pointer-events: none;
 }
 
-
 .id-content-update {
   position: absolute;
   left: 47.5%;
@@ -240,6 +334,122 @@
   z-index: 1001;
   pointer-events: none;
 }
+
+/* -------------- scan section -------------- */
+
+.scan-camera {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 93vh; /* 80% of .content (which is 80vh), so 0.8 * 80vh = 64vh */
+  text-align: center;
+  z-index: 950;
+  display: flex;
+  background-color: #000000;  
+
+}
+
+.scan-camera-header {
+  position: absolute;
+  top: 4vh;
+  left: 50%;
+  width: 100vw;
+  height: 4vh; /* 80% of .content (which is 80vh), so 0.8 * 80vh = 64vh */
+  text-align: center;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.8vh;
+}
+
+.scan-camera-animation {
+  position: absolute;
+  left: 50%;
+  top: 10vh;
+  width: 7vh;
+  height: 7vh; /* Full viewport height */
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.animation1 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 0%;
+  object-fit: contain;
+  animation: slideBounce 5s ease-in-out infinite;
+}
+
+.animation2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+}
+
+
+@keyframes slideBounce {
+  0% {
+    transform: translateX(-3.5vh);
+  }
+  50% {
+    transform: translateX(2vh); /* Slide left */
+  }
+  100% {
+    transform: translateX(-3.5vh);      /* Return right */
+  }
+}
+
+.scan-camera-perimeter {
+  position: absolute;
+  left: 50%;
+  top: 45vh;
+  width: 85vw;
+  height: 85vw; /* Full viewport height */
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-camera-perimeter img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scan-camera-bottom {
+  position: absolute;
+  top: 91.3%;
+  left: 0%;
+  width: 100vw;
+  height: 8vh; /* 80% of .content (which is 80vh), so 0.8 * 80vh = 64vh */
+  text-align: center;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000d2b48;  
+  color: #ffffff;
+  font-size: 2vh;
+}
+
+/* -------------- kontrol section -------------- */
 
 .kontrol-header {
   position: absolute;
@@ -409,6 +619,8 @@
   pointer-events: none;
 }
 
+/* -------------- footer section -------------- */
+
 .footer {
     position: fixed;
     top: 93vh;
@@ -461,6 +673,8 @@ body {
 .id-content-update,
 .id-content-name,
 .kontrol-bottom-name,
+.scan-camera-bottom,
+.info-cpr,
 .footer {
     font-family: 'dejavu-sans', Arial, sans-serif;
 }
