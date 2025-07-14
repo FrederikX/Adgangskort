@@ -54,16 +54,22 @@ function showPage(page) {
   }
 
   const content = document.querySelector('.content');
+  const body = document.querySelector('.scan');
   if (!content) return;
 
   if (page === 'Kort') {
+    // Show the header
+    document.getElementById('main-header').style.display = 'flex'; // or 'block', depending on your layout
+    document.getElementById('main-content').style.marginTop = '5vh';
+    document.getElementById('main-content').style.height = '88vh';
+
     content.innerHTML = `
       <div class="id-content">
         <img src="images/Id-background.png" alt="ID Image">
         <div class="id-content-name"></div>
-        <div class="id-content-age"></div>
-        <div class="id-content-birthyear"></div>
-        <div class="id-content-number"></div>
+        <div class="id-content-age">${age + ' år'}</div>
+        <div class="id-content-birthyear">${birthDateString}</div>
+        <div class="id-content-number">${'20712936'}</div>
         <div class="id-content-update"></div>
         <div class="Id-star">
           <img src="images/Id-star.png" alt="Star">
@@ -73,9 +79,7 @@ function showPage(page) {
         </div>
       </div>
     `;
-    document.querySelector('.id-content-birthyear').textContent = birthDateString;
-    document.querySelector('.id-content-age').textContent = age + ' år';
-    document.querySelector('.id-content-number').textContent = "20712936";
+    // Apply a line split between first and middle/last name
     const nameDiv = document.querySelector('.id-content-name');
     const nameParts = name.split(' ');
     let firstName = nameParts[0] || '';
@@ -91,10 +95,54 @@ function showPage(page) {
       pinChecked = true;
     }
 
-  } else if (page === 'Info') {
-    content.innerHTML = '<div style="width:100vw;height:88vh;display:flex;align-items:center;justify-content:center;"></div>';
+  }else if (page === 'Info') {
+    // Show the header
+    document.getElementById('main-header').style.display = 'flex'; // or 'block', depending on your layout
+    document.getElementById('main-content').style.marginTop = '5vh';
+    document.getElementById('main-content').style.height = '88vh';
 
+    content.innerHTML = `
+      <div style="width:100vw;height:88vh;display:flex;align-items:center;justify-content:center;"></div>
+      
+      <div class="info-content">
+        <img class="" src="images/Info-content.png" alt="Info content">
+        <div class="info-cpr">${kontrolBottomId}</div>
+        <div class="info-nummer">20712936</div>
+        <div class="info-udstedt">${age}</div>
+        <div class="info-gyldig">${age+15}</div>
+        <div class="info-fødested">Danmark</div>
+      </div>
+      `;
+
+  } else if (page === 'Scan') {
+    // Hide the header
+    document.getElementById('main-header').style.display = 'none';
+    document.getElementById('main-content').style.marginTop = '0vw';
+    document.getElementById('main-content').style.height = '93vh';
+
+    content.innerHTML = `
+      <div style="width:100vw;height:88vh;display:flex;align-items:center;justify-content:center;"></div>
+      
+      <div class="scan-camera">
+
+        <div class="scan-camera-header">Scan kørekortets QR-kode</div>
+        <div class="scan-camera-animation">
+          <img class="animation1" src="images/animation1.png" alt="animation">
+          <img class="animation2" src="images/animation2.png" alt="animation">
+        </div>
+        <div class="scan-camera-perimeter">
+          <img src="images/scan-perimeter.png" alt="Camera perimeter">
+        </div>
+        <div class="scan-camera-bottom">Kontrollér id ved at scanne kørekort-appen</div>
+      </div>
+      
+      `;
   } else if (page === 'Kontrol') {
+    // Show the header
+    document.getElementById('main-header').style.display = 'flex'; // or 'block', depending on your layout
+    document.getElementById('main-content').style.marginTop = '5vh';
+    document.getElementById('main-content').style.height = '88vh';
+
     content.innerHTML = `
       <div style="width:100vw;height:88vh;display:flex;align-items:center;justify-content:center;"></div>
       
@@ -123,6 +171,22 @@ function showPage(page) {
       </div>
     `;
 
+    // Switch QR code every 150ms
+    let qrToggle = false;
+    const qrImage = document.getElementById('kontrol-qr-image');
+    if (qrImage) {
+      window.qrInterval = setInterval(() => {
+        qrToggle = !qrToggle;
+        qrImage.src = qrToggle ? 'images/QR2.png' : 'images/QR1.png';
+      }, 150);
+    }
+  } else if (page === 'Menu') {
+    content.innerHTML = `
+      <div style="width:100vw;height:88vh;display:flex;align-items:center;justify-content:center;"></div>
+      
+    `;
+
+    // Switch QR code every 150ms
     let qrToggle = false;
     const qrImage = document.getElementById('kontrol-qr-image');
     if (qrImage) {
